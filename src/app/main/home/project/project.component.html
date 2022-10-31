@@ -1,0 +1,36 @@
+<div class="container my-4">
+  <div class="card">
+    <div class="card-body">
+      <h1 class="card-title">Proyectos</h1>
+      <div class="text-end mb-2" *ngIf="isLogged">
+        <button type="button" class="btn btn-primary btn-sm" (click)="onNew()">
+          <i class="fa fa-plus" aria-hidden="true"></i>
+        </button>
+      </div>
+      <div class="text-center" *ngIf="loading">
+        <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
+      </div>
+      <div  class="alert alert-warning text-center" role="alert" *ngIf="!loading &&  projects.length == 0">
+        No hay información cargada
+      </div>
+      <div class="card mt-4" *ngFor="let item of projects; index as i">
+        <div class="card-body">
+          <app-button-edit
+            [delele]="true"
+            (onEdit)="onEdit(item.id)"
+            (onDelete)="onDelete(item.id)"
+          ></app-button-edit>
+          <h5 class="card-title">{{ item.nombrePro }}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">{{ item.fechaPro }}</h6>
+          <p class="card-text">
+            {{ item.descripcionPro }}
+          </p>
+          <!-- <a href="#" class="card-link">Ver Proyecto</a> -->
+          <!-- <a href="#" class="card-link">Another link</a> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

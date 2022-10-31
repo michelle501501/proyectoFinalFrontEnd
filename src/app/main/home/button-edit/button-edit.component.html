@@ -1,0 +1,10 @@
+<div class="row" *ngIf="isLogged">
+  <div class="col-lg-2 offset-lg-10 col-sm-12 text-end">
+    <button type="button" class="btn btn-primary btn-sm" (click)="goToEdit()">
+      <i class="fa fa-pencil" aria-hidden="true"></i>
+    </button>
+    <button *ngIf="delele" type="button" class="btn btn-danger btn-sm ms-2" (click)="doDelete()">
+      <i class="fa fa-trash" aria-hidden="true"></i>
+    </button>
+  </div>
+</div>

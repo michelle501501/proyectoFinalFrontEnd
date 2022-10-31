@@ -1,0 +1,40 @@
+<div class="container mt-4">
+  <div class="card">
+    <div class="card-body" >
+      <div class="text-center" *ngIf="loading">
+        <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
+      </div>
+      <app-button-edit (onEdit)="goToEdit()" *ngIf="profile"></app-button-edit>
+      <div class="row" *ngIf="profile">
+        <div class="col-xs-12 col-sm-2 col-md-3 col-lg-3">
+          <div class="row">
+            <div class="col text-center">
+              <img
+              [src]="profile.img"
+           
+                class="rounded-circle img-profile"
+              />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col text-center">
+              <span class="fw-bold">{{ profile.fullName }}</span
+              ><br />
+              <span class="fw-bold">{{profile.puesto}}</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+          <span>
+            <h1>Acerca de mí</h1>
+            <p>
+              {{profile.bio}}
+            </p>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,55 @@
+<div class="container">
+    <div class="row">
+      <div class="col-6 offset-3">
+        <div id="login" class="form-card">
+          <h1 class="display1 title fw-bold">Proyecto</h1>
+          <!-- <p class="subhead">Description</p> -->
+          <div>
+            <div *ngIf="!loading">
+              <form name="form" [formGroup]="form">
+                <div class="mb-3">
+                  <label for="email" class="form-label label">Nombre</label>
+                  <input
+                    formControlName="nombrePro"
+                    type="text"
+                    class="form-control"
+                    id="nombrePro"
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="email" class="form-label label">Fecha</label>
+                  <input
+                    formControlName="fechaPro"
+                    type="text"
+                    class="form-control"
+                    id="fechaPro"
+                    placeholder="dd/mm/yyyy"
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="email" class="form-label label">Descripción</label>
+                  <input
+                    formControlName="descripcionPro"
+                    type="text"
+                    class="form-control"
+                    id="descripcionPro"
+                  />
+                </div>
+                <div class="d-grid gap-2 mt-4">
+                  <button
+                    class="btn btn-primary"
+                    type="button"
+                    [disabled]="loading || !form.valid"
+                    (click)="onSave()"
+                  >
+                    Guardar
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
